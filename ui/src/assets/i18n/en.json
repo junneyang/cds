@@ -1051,6 +1051,7 @@
   "workflow_template_created": "Workflow template created",
   "workflow_template_saved": "Workflow template saved",
   "workflow_template_deleted": "Workflow template deleted",
+  "workflow_template": "Workflow template",
   "workflow_templates": "Workflow templates",
   "workflow_template_help_line_1": "A workflow template allows you to quickly create then update a workflow and its components.",
   "workflow_template_update_title": "Update workflow from template",

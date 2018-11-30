@@ -1,4 +1,42 @@
 <h2>{{ 'workflow_template_edit_title' | translate }} <span *ngIf="workflowTemplate">{{oldWorkflowTemplate.name}}</span></h2>
 
-<app-workflow-template-form mode="edit" [loading]="loading" [workflowTemplate]="workflowTemplate" [groups]="groups"
-    (save)="saveWorkflowTemplate()" (delete)="deleteWorkflowTemplate()"></app-workflow-template-form>
+<sm-menu title="" class="pointing secondary">
+    <a sm-item [class.active]="selectedTab === 'template'" (click)="showTab('template')">
+        <i class="alarm icon"></i>
+        {{'workflow_template' | translate }}</a>
+    <a sm-item [class.active]="selectedTab === 'audits'" (click)="showTab('audits')">
+        <i class="history icon"></i>
+        {{'common_audit' | translate }}
+    </a>
+</sm-menu>
+<div id="TemplateContent">
+    <div class="scrollingContent">
+        <div class="paddingContent">
+            <div class="viewContent">
+                <div [ngSwitch]="selectedTab">
+                    <div *ngSwitchCase="'template'" class="ui grid">
+                        <div class="thirteen wide column">
+                            <app-workflow-template-form mode="edit" [loading]="loading" [workflowTemplate]="workflowTemplate"
+                                [groups]="groups" (save)="saveWorkflowTemplate()" (delete)="deleteWorkflowTemplate()"></app-workflow-template-form>
+                        </div>
+                        <div class="three wide column">
+                            <app-workflow-template-help></app-workflow-template-help>
+                            <ng-container *ngIf="workflowTemplate">
+                                <br />
+                                <div class="field" *ngIf="workflowTemplate.first_audit">
+                                    <h3>{{'common_created_by' | translate}}</h3>
+                                    {{workflowTemplate.first_audit.triggered_by}}
+                                </div>
+                                <br />
+                                <div class="field" *ngIf="workflowTemplate.last_audit">
+                                    <h3>{{'common_last_modified' | translate}}</h3>
+                                    {{workflowTemplate.last_audit.created}}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

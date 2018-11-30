@@ -53,6 +53,7 @@ import {SafeHtmlPipe} from './pipes/safeHtml.pipe';
 import {TruncatePipe} from './pipes/truncate.pipe';
 import {PrerequisitesFormComponent} from './prerequisites/form/prerequisites.form.component';
 import {PrerequisiteComponent} from './prerequisites/list/prerequisites.component';
+import {ProjectBreadcrumbComponent} from './project-breadcrumb/project-breadcrumb.component';
 import {RepoManagerFormComponent} from './repomanager/from/repomanager.form.component';
 import {RequirementsFormComponent} from './requirements/form/requirements.form.component';
 import {RequirementsListComponent} from './requirements/list/requirements.list.component';
@@ -120,6 +121,7 @@ import {ZoneComponent} from './zone/zone.component';
         ActionStepFormComponent,
         AuditListComponent,
         BreadcrumbComponent,
+        ProjectBreadcrumbComponent,
         ChartComponentComponent,
         CommitListComponent,
         CutPipe,
@@ -223,6 +225,7 @@ import {ZoneComponent} from './zone/zone.component';
         ActionComponent,
         AuditListComponent,
         BreadcrumbComponent,
+        ProjectBreadcrumbComponent,
         ChartComponentComponent,
         CodemirrorModule,
         CommitListComponent,

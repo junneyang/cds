@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { finalize } from 'rxjs/internal/operators/finalize';
@@ -13,11 +13,13 @@ import { ToastService } from '../../../../shared/toast/ToastService';
     templateUrl: './workflow-template.edit.html',
     styleUrls: ['./workflow-template.edit.scss']
 })
-export class WorkflowTemplateEditComponent {
+export class WorkflowTemplateEditComponent implements OnInit {
     oldWorkflowTemplate: WorkflowTemplate;
     workflowTemplate: WorkflowTemplate;
     groups: Array<Group>;
     loading: boolean;
+
+    selectedTab: 'template';
 
     constructor(
         private _workflowTemplateService: WorkflowTemplateService,
@@ -26,7 +28,14 @@ export class WorkflowTemplateEditComponent {
         private _toast: ToastService,
         private _translate: TranslateService,
         private _router: Router
-    ) {
+    ) { }
+
+    ngOnInit() {
+        this._route.queryParams.subscribe((params) => {
+            if (params['tab']) {
+                this.selectedTab = params['tab'];
+            }
+        });
         this._route.params.subscribe(params => {
             const groupName = params['groupName'];
             const templateSlug = params['templateSlug'];
@@ -74,5 +83,10 @@ export class WorkflowTemplateEditComponent {
                 this._toast.success('', this._translate.instant('workflow_template_deleted'));
                 this._router.navigate(['settings', 'workflow-template']);
             });
+    }
+
+    showTab(tab: string): void {
+        this._router.navigateByUrl('/settings/workflow-template/' + this.workflowTemplate.group.name
+            + '/' + this.workflowTemplate.slug + '?tab=' + tab);
     }
 }

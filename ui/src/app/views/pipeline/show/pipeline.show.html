@@ -2,7 +2,7 @@
 <ng-template #showPipeline>
     <div id="PipelineShow">
         <div class="CDSbreadcrumb">
-            <app-breadcrumb [project]="project"
+            <app-project-breadcrumb [project]="project"
                             [pipeline]="pipeline"
                             [application]="application"
                             [workflow]="workflowName"
@@ -11,7 +11,7 @@
                             [envName]="envName"
                             [remote]="remote"
                             [branch]="branch">
-            </app-breadcrumb>
+            </app-project-breadcrumb>
         </div>
         <div class="CDSmenu">
             <sm-menu title="" class="pointing secondary">

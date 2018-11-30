@@ -1,7 +1,6 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {SharedModule} from '../../shared/shared.module';
 import {WorkflowAddComponent} from './add/workflow.add.component';
-import {WorkflowBreadCrumbComponent} from './breadcrumb/workflow.breadcrumb.component';
 import {WorkflowGraphComponent} from './graph/workflow.graph.component';
 import {WorkflowRunArtifactListComponent} from './run/node/artifact/artifact.list.component';
 import {WorkflowNodeRunHistoryComponent} from './run/node/history/history.component';
@@ -29,7 +28,6 @@ import {workflowRouting} from './workflow.routing';
         WorkflowAdminComponent,
         WorkflowComponent,
         WorkflowAddComponent,
-        WorkflowBreadCrumbComponent,
         WorkflowGraphComponent,
         WorkflowRunComponent,
         WorkflowNodeRunComponent,
